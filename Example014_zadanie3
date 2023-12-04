@@ -1,0 +1,49 @@
+// Задание 3
+// Считать строку с консоли, состоящую из латинских
+// букв в нижнем регистре. Выяснить, сколько среди
+// введённых букв гласных.
+// Пример
+// “hello” => 2
+// “world” => 1
+
+bool is_vowels(char el, char[] chars){
+    foreach (char x in chars){
+        if (x == el)
+            return true;
+    }
+    return false;
+}
+
+    
+Console.Clear();
+Console.Write("Введите строку: ");
+string initial = Console.ReadLine()!;
+char[] chars = {'a', 'e', 'u', 'i', 'o', 'y'};
+int count = 0;
+for (int i = 0; i < initial.Length; i++){
+    if (is_vowels(initial[i], chars))
+        count++;
+}
+Console.WriteLine(count);
+
+10:42
+bool is_vowels(char el, string vowels){
+    for (int i = 0; i < vowels.Length; i++){
+        if (vowels[i] == el)
+            return true;
+    }
+    return false;
+}
+
+    
+Console.Clear();
+Console.Write("Введите строку: ");
+string initial = Console.ReadLine()!;
+string vowels = "aeuioy";
+int count = 0;
+for (int i = 0; i < initial.Length; i++){
+    if (is_vowels(initial[i], vowels))
+        count++;
+}
+Console.WriteLine(count);
+
