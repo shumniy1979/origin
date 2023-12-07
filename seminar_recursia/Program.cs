@@ -1,23 +1,33 @@
-﻿// Рекурсия
-// Напишите программу, которая принимает от пользователя 2 числа. 
-// Необходимо сложить введенные числа, без прямого сложения.
+﻿/*
+Задача 1.
+Напишите программу, которая будет принимать на вход число и
+возвращать сумму его цифр.
+*/
 
-int summa(int a, int b){
-    if (b == 0)
-        return a;
-    return summa(a + 1, b - 1);
+
+int summaCifr(int n){
+    if (n < 10)
+        return n;
+    return summaCifr(n / 10) + n % 10;
 }
+
+/* n = 456 S = summaCifr
+S(456) -> S(45) + 6 = 4 + 5 + 6 = 15
+            |
+            S(4) + 5 = 4 + 5
+              |
+              4
+
+*/
 
 
 Console.Clear();
-Console.Write("Введите 1-ое число: ");
-int a = int.Parse(Console.ReadLine()!);
-Console.Write("Введите 2-ое число: ");
-int b = int.Parse(Console.ReadLine()!);
-Console.WriteLine($"Результат: {a} + {b} = {summa(a, b)}");
-
-/*
-a = 5 b = 3 S = summa
-
-S(5, 3) -> S(6, 2) -> S(7, 1) -> S(8, 0) -> 8
-*/
+Console.Write("Введите число: ");
+int n = int.Parse(Console.ReadLine()!);
+// int result = 0;
+// while (n >= 10){ // n < 10 || n % 10 = n || n / 10 == 0
+//     result += n % 10;
+//     n /= 10;
+// }
+// Console.WriteLine(result + n);
+Console.WriteLine(summaCifr(n));
